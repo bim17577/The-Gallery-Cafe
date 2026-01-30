@@ -1,0 +1,961 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>The Gallery Cafe</title>
+    <style>
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header h1 a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+
+        /* LOGO */
+        .logo {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: white;
+            text-transform: none;
+            font-family: "Rowdies", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* HEADER NAV */
+        nav {
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            flex-grow: 2;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: rgb(241, 232, 232);
+            text-decoration: none;
+            padding: 0.5rem 0.5rem;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav ul li a:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        /* Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #4f8c8c;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /*HEADER RIGHT*/
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+#search-icon img {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.search-container input {
+    border: none;
+    font-family: "Lato", sans-serif;
+    outline: none;
+    padding: 10px;
+    border-radius: 25px;
+    width: 200px;
+}
+
+.suggestions {
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.suggestions a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.suggestions a:hover {
+    background-color: #f1f1f1;
+}
+
+.login-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: rgb(21, 21, 21);
+}
+
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+        }
+
+        .slide.show {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .animated-text {
+    color: rgb(255, 255, 255);
+    font-size: 4.5rem;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8), /* Top-left corner shadow */
+        -1px -1px 2px rgba(0, 0, 0, 0.8), /* Bottom-right corner shadow */
+        2px 2px 3px rgba(0, 0, 0, 0.8), /* Larger shadow to enhance the effect */
+        -2px -2px 3px rgba(0, 0, 0, 0.8); /* Larger shadow to enhance the effect */
+    font-family: Comic Sans MS;
+}
+
+
+ /* About Section */
+ .about {
+            padding: 60px 20px;
+            background-color: white;
+            color: #333;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1abc9c;
+            margin-bottom: 10px;
+            font-family: 'Rowdies', sans-serif;
+        }
+
+        .section-separator {
+            width: 80px;
+            height: 4px;
+            background-color: #1abc9c;
+            margin: 0 auto;
+            display: block;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .about-image {
+    flex: 1;
+    max-width: 100%;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+        .about-text {
+            flex: 1;
+            max-width: 45%;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .detail-text {
+            color: #666;
+        }
+
+        .section-title-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-image,
+            .about-text {
+                max-width: 90%;
+            }
+        }
+
+
+/* MEALS ICONS SECTION */
+.meal-icons {
+    padding: 60px 20px;
+    background-image: url('../images/13.jpg');
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-attachment: fixed;
+    color: #333;
+    text-align: center;
+}
+
+.meal-icons .section-title {
+    margin-bottom: 40px;
+}
+
+.meal-icons .section-title h2 {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    margin-bottom: 10px;
+    font-family: 'Rowdies', sans-serif;
+}
+
+.meal-icons .section-separator {
+    width: 80px;
+    height: 4px;
+    background-color: #e74c3c;
+    margin: 0 auto;
+    display: block;
+    border-radius: 2px;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.icon-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: #333;
+}
+
+.icon-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.icon-card i {
+    color: #e74c3c;
+}
+
+.icon-card h4 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-family: 'Rowdies', sans-serif;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.section-separator {
+    width: 80px;
+    height: 4px;
+    background-color: #1abc9c;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.testimonials-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testimonial-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-image: url('../images/k1.webp');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+
+
+.testimonial-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-content {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-content img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #1abc9c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-text {
+    max-width: 600px;
+}
+
+.testimonial-text p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0 0 10px 0;
+}
+
+.testimonial-text h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.testimonial-role {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+
+
+
+
+
+ .footer {
+            background:black;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            margin: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1abc9c;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: #1abc9c;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .footer-section p,
+        .footer-section ul,
+        .footer-section li,
+        .footer-section a {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-section .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 24px;
+            color: #bdc3c7;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-section .social-links a:hover {
+            color: #1abc9c;
+            transform: scale(1.2);
+        }
+
+        .footer-section:hover h2 {
+            color: #e74c3c;
+        }
+
+        .footer-section:hover h2::after {
+            width: 100%;
+        }
+
+        .footer-section:hover p,
+        .footer-section:hover ul li a {
+            color: #ecf0f1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            background: #011f1f;
+            width: 100%;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+        
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                margin: 10px 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="index.html">The Gallery Cafe</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html" class="dropbtn"><b>Home</b></a>
+                </li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Reservations.html">Reservations</a></li>
+                <li><a href="Preorder.html">Pre-Order</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+               
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search..." onkeyup="showSuggestions(this.value)">
+                <div id="search-icon"><img src="images/s2.png" alt="Search Icon"></div>
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+            <a href="loginMain.html" class="login-btn">Login</a>
+            
+    </header>
+
+    <section class="hero">
+        <div class="slideshow-container">
+            <img class="slide show" src="images/3.jpg" alt="Slide 1">
+            <img class="slide" src="images/2.webp" alt="Slide 2">
+            <img class="slide" src="images/4.jpg" alt="Slide 3">
+            <img class="slide" src="images/6.webp" alt="Slide 4">
+        </div>
+        <div class="hero-content">
+            <h1 class="animated-text">
+                <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span>
+                <span> </span><span>t</span><span>o</span><span> </span>
+                <span>T</span><span>h</span><span>e</span><span> </span>
+                <span>G</span><span>a</span><span>l</span><span>l</span><span>e</span><span>r</span><span>y</span>
+                <span></span><span>C</span><span>a</span><span>f</span><span>f</span><span>e</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <div class="section-separator"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="images/11.jpg" alt="About The Gallery Cafe">
+            </div>
+            <div class="about-text">
+                <p class="intro-text">At The Gallery Cafe, we bring you a unique experience.</p>
+                <p class="detail-text">We offer a cozy atmosphere with a blend of contemporary and classic styles. Our menu features a range of gourmet coffee, delicious pastries, and light meals crafted from the finest ingredients. Come and enjoy a relaxing day at our cafe where art and cuisine meet.</p>
+                <p class="detail-text">Our cafe is more than just a place to get your caffeine fix; it’s a cultural hub where art exhibitions, live music, and community events come together. We believe in creating memorable experiences through exceptional service and a warm, inviting environment.</p>
+            </div>
+        </div>
+    </section>
+
+  <!-- MEALS ICONS SECTION -->
+<section class="meal-icons">
+    <div class="section-title">
+        <h2>Explore Our Meal Options</h2>
+        <div class="section-separator"></div>
+    </div>
+    <div class="icons-container">
+        <a href="Menu.html" class="icon-card">
+            <i class="fa fa-coffee fa-3x"></i>
+            <h4>Breakfast</h4>
+        </a>
+        <a href="Menu.html" class="icon-card">
+            <i class="fa fa-hamburger fa-3x"></i>
+            <h4>Lunch</h4>
+        </a>
+        <a href="Menu.html" class="icon-card">
+            <i class="fa fa-utensils fa-3x"></i>
+            <h4>Dinner</h4>
+        </a>
+    </div>
+</section>
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>What Our Customers Say</h2>
+            <div class="section-separator"></div>
+        </div>
+        <div class="testimonials-wrapper">
+            <div class="testimonial-item">
+                <div class="testimonial-content">
+                    <img src="images/w1.jpg" alt="Customer">
+                    <div class="testimonial-text">
+                        <p>"The Gallery Cafe is my favorite spot to relax and enjoy a cup of coffee. The atmosphere is fantastic, and the staff are always friendly."</p>
+                        <h3>John Doe</h3>
+                        <p class="testimonial-role">Regular Customer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-content">
+                    <img src="images/w3.jpg" alt="Customer">
+                    <div class="testimonial-text">
+                        <p>"I love the food at The Gallery Cafe. Everything is always fresh and delicious. Highly recommend this place!"</p>
+                        <h3>Jane Smith</h3>
+                        <p class="testimonial-role">Food Enthusiast</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-content">
+                    <img src="images/w2.jpg" alt="Customer">
+                    <div class="testimonial-text">
+                        <p>"The Gallery Cafe is a hidden gem. The ambiance is cozy, and their desserts are to die for. I'll definitely be coming back!"</p>
+                        <h3>Emily Johnson</h3>
+                        <p class="testimonial-role">Local Blogger</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-content">
+                    <img src="images/w4.jpg" alt="Customer">
+                    <div class="testimonial-text">
+                        <p>"A great place to catch up with friends or enjoy a quiet moment alone. Their coffee and pastries are the best in town!"</p>
+                        <h3>Michael Brown</h3>
+                        <p class="testimonial-role">Frequent Visitor</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-content">
+                    <img src="images/w6.jpg" alt="Customer">
+                    <div class="testimonial-text">
+                        <p>"I had an amazing experience at The Gallery Cafe. The service was impeccable, and the atmosphere was perfect for a weekend brunch."</p>
+                        <h3>Sophie Lee</h3>
+                        <p class="testimonial-role">Weekend Brunch Lover</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="../About.html"><i class="fas fa-users"></i> About</a></li>
+                        <li><a href="../Contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li><a href="Reservations.html"><i class="fas fa-book"></i>Reservations </a></li>
+                    </ul>
+                </div>
+
+                <!-- Socials part -->
+                <div class="footer-section follow">
+                    <h2>Follow Us</h2>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://lk.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contacts part -->
+                <div class="footer-section contact">
+                    <h2>Contact Us</h2>
+                    <p>Email: <a href="mailto:info@example.com">thegallerycaffe@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                    <p>Address: 123 delgoda, colombo, 4567</p>
+                </div>
+
+                <div class="footer-bottom">
+                    &copy; 2024 The Gallery Cafe | Designed by bimasha | All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script>
+            const suggestionsList = [
+    { text: "Breakfast", link: "/Menu.html#breakfast" },
+    { text: "Beverages", link: "/Menu.html#beverages" },
+    { text: "Lunch", link: "/Menu.html#lunch" },
+    { text: "Dinner", link: "/Menu.html#dinner" },
+    { text: "Appetizer", link: "/Menu.html#appetizer" },
+    { text: "Preorder", link: "/Preorder.html#preorder" },
+    { text: "Contact Us", link: "/Contact.html#contact" }
+];
+
+function showSuggestions(value) {
+    const suggestionsBox = document.getElementById('suggestions');
+    suggestionsBox.innerHTML = '';
+    
+    if (value.length > 0) {
+        const filteredSuggestions = suggestionsList.filter(suggestion =>
+            suggestion.text.toLowerCase().includes(value.toLowerCase())
+        );
+        
+        filteredSuggestions.forEach(suggestion => {
+            const suggestionItem = document.createElement('a');
+            suggestionItem.href = suggestion.link; // Set the link to the relevant section in menu.html
+            suggestionItem.textContent = suggestion.text;
+            suggestionsBox.appendChild(suggestionItem);
+        });
+
+        suggestionsBox.style.display = 'block';
+    } else {
+        suggestionsBox.style.display = 'none';
+    }
+}
+
+document.addEventListener('click', function(event) {
+    const isClickInside = document.querySelector('.search-container').contains(event.target);
+    if (!isClickInside) {
+        document.getElementById('suggestions').style.display = 'none';
+    }
+});
+
+            
+
+
+
+
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            let slideIndex = 0;
+            const slides = document.querySelectorAll(".slide");
+
+            function showSlides() {
+                slides.forEach((slide, index) => {
+                    slide.classList.remove("show");
+                    if (index === slideIndex) {
+                        slide.classList.add("show");
+                    }
+                });
+                slideIndex++;
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0;
+                }
+                setTimeout(showSlides, 5000);
+            }
+
+            showSlides();
+
+
+
+
+        </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

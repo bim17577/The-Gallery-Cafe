@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADHD Kids Zone | Login</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('images/lg1.jpg');
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-attachment: fixed;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            width: 90%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 50px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .text-container {
+            flex: 1;
+            padding: 0 2rem; 
+            text-align: center;
+        }
+
+        .text-container h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #6a1b9a;
+        }
+
+        .login-buttons {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-buttons button {
+            width: 100%;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+            color: black;
+            cursor: pointer;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .login-buttons button:hover {
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+
+        .login-buttons button:focus {
+            outline: none;
+        }
+
+        .image-container {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .link a {
+            color: #6a1b9a;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .link a:hover {
+            color: #4a148c;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="content">
+            <div class="image-container">
+                <img src="images/ab1.jpg" alt="Login" /> 
+            </div>
+            <div class="text-container">
+                <h1>Login</h1>
+                <div class="login-buttons">
+                    <button onclick="location.href='login.html'">User Login</button>
+                    <button onclick="location.href='adminLogin.html'">Admin Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

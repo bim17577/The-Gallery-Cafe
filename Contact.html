@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Contact Us - The Gallery Cafe</title>
+    <style>
+        /* Include the provided styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-image: url('../images/au4.jpg');
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header h1 a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* LOGO */
+        .logo {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: white;
+            text-transform: none;
+            font-family: "Rowdies", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* HEADER NAV */
+        nav {
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            flex-grow: 2;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: rgb(241, 232, 232);
+            text-decoration: none;
+            padding: 0.5rem 0.5rem;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav ul li a:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        /* Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #4f8c8c;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* HEADER RIGHT */
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* SEARCH BAR */
+        .search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+#search-icon img {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.search-container input {
+    border: none;
+    font-family: "Lato", sans-serif;
+    outline: none;
+    padding: 10px;
+    border-radius: 25px;
+    width: 200px;
+}
+
+.suggestions {
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.suggestions a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.suggestions a:hover {
+    background-color: #f1f1f1;
+}
+
+.login-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: rgb(21, 21, 21);
+}
+
+        /* Contact Page Styles */
+        .contact-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #000000; /* Vibrant blue color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    font-family: 'Helvetica Neue', sans-serif; /* Modern, clean font */
+    letter-spacing: 1px; /* Adds spacing between letters for elegance */
+    text-align: center; /* Centers the heading */
+}
+
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #000000;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            height: 500px;
+    }
+
+    .contact-form h2 {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+
+    label {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    appearance: none; /* Removes default dropdown arrow for consistent styling */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIuNTU1IDE2LjE2Nmw2LjY2NS02LjY2NUwxOC44MzUgOGwtNi4yOC42Mi02LjI5Ni02LjI5LS43OTcgNi42ODRsNi42NjUgNi42NjV6Ii8+PC9zdmc+');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px; /* Space for the arrow */
+}
+
+select:focus {
+    outline: none;
+    border-color: #28a745; /* Green border on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1em;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    textarea {
+        resize: vertical;
+        height: 100px;
+    }
+
+    .send-message-button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    .send-message-button:hover {
+        background-color: #218838;
+    }
+
+        .map-container {
+            margin: 30px 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: black;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            margin: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1abc9c;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: #1abc9c;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .footer-section p,
+        .footer-section ul,
+        .footer-section li,
+        .footer-section a {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-section .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 24px;
+            color: #bdc3c7;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-section .social-links a:hover {
+            color: #1abc9c;
+            transform: scale(1.2);
+        }
+
+        .footer-section:hover h2 {
+            color: #e74c3c;
+        }
+
+        .footer-section:hover h2::after {
+            width: 100%;
+        }
+
+        .footer-section:hover p,
+        .footer-section:hover ul li a {
+            color: #ecf0f1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            background: #011f1f;
+            width: 100%;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1><a href="index.html">The Gallery Cafe</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html" class="dropbtn"><b>Home</b></a>
+                </li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Reservations.html">Reservations</a></li>
+                <li><a href="Preorder.html">Pre-Order</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+               
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search..." onkeyup="showSuggestions(this.value)">
+                <div id="search-icon"><img src="images/s2.png" alt="Search Icon"></div>
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+            <a href="loginMain.html" class="login-btn">Login</a>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="contact-container">
+        <section class="contact-info">
+            <h2>Contact Us</h2>
+            <p>We would love to hear from you! Whether you have questions, feedback, or just want to get in touch, use the form below or reach out to us using the details provided.</p>
+        </section>
+
+        <section class="contact-form">
+            <h2>Get in touch</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <select id="rating" name="rating" required>
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="send-message-button">Send Message</button>
+            </form>
+        </section>
+
+        <section class="map-container">
+            <h2>Our Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.3235972759816!2d-122.42092728468188!3d37.77492957975973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580e0e6e3ec97%3A0xf4c5b062fd9e1a14!2sThe%20Gallery%20Cafe!5e0!3m2!1sen!2sus!4v1645714703744!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+    </main>
+
+     <!-- Footer Section -->
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="../About.html"><i class="fas fa-users"></i> About</a></li>
+                        <li><a href="../Contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li><a href="Reservations.html"><i class="fas fa-book"></i>Reservations </a></li>
+                    </ul>
+                </div>
+
+                <!-- Socials part -->
+                <div class="footer-section follow">
+                    <h2>Follow Us</h2>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://lk.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section contact">
+                    <h2>Contact Us</h2>
+                    <p>Email: <a href="mailto:info@example.com">thegallerycaffe@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                    <p>Address: 123 delgoda, colombo, 4567</p>
+                </div>
+
+                <div class="footer-bottom">
+                    &copy; 2024 The Gallery Cafe | Designed by bimasha | All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const suggestionsList = [
+{ text: "Breakfast", link: "/Menu.html#breakfast" },
+{ text: "Beverages", link: "/Menu.html#beverages" },
+{ text: "Lunch", link: "/Menu.html#lunch" },
+{ text: "Dinner", link: "/Menu.html#dinner" },
+{ text: "Appetizer", link: "/Menu.html#appetizer" },
+{ text: "Preorder", link: "/Preorder.html#preorder" },
+{ text: "Contact Us", link: "/Contact.html#contact" }
+];
+
+function showSuggestions(value) {
+const suggestionsBox = document.getElementById('suggestions');
+suggestionsBox.innerHTML = '';
+
+if (value.length > 0) {
+    const filteredSuggestions = suggestionsList.filter(suggestion =>
+        suggestion.text.toLowerCase().includes(value.toLowerCase())
+    );
+    
+    filteredSuggestions.forEach(suggestion => {
+        const suggestionItem = document.createElement('a');
+        suggestionItem.href = suggestion.link; // Set the link to the relevant section in menu.html
+        suggestionItem.textContent = suggestion.text;
+        suggestionsBox.appendChild(suggestionItem);
+    });
+
+    suggestionsBox.style.display = 'block';
+} else {
+    suggestionsBox.style.display = 'none';
+}
+}
+
+document.addEventListener('click', function(event) {
+const isClickInside = document.querySelector('.search-container').contains(event.target);
+if (!isClickInside) {
+    document.getElementById('suggestions').style.display = 'none';
+}
+});
+</script>
+</body>
+</html>

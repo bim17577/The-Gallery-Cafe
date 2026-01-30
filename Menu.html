@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <title>Menu - The Gallery Cafe</title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fff; /* Fallback color */
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/8.jpg'); /* Corrected path */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+
+
+        /* HEADER */
+        header {
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header h1 a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+
+        /* LOGO */
+        .logo {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: white;
+            text-transform: none;
+            font-family: "Rowdies", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* HEADER NAV */
+        nav {
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            flex-grow: 2;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: rgb(241, 232, 232);
+            text-decoration: none;
+            padding: 0.5rem 0.5rem;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav ul li a:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        /* Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #4f8c8c;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /*HEADER RIGHT*/
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* SEARCH BAR */
+        .search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+#search-icon img {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.search-container input {
+    border: none;
+    font-family: "Lato", sans-serif;
+    outline: none;
+    padding: 10px;
+    border-radius: 25px;
+    width: 200px;
+}
+
+.suggestions {
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.suggestions a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.suggestions a:hover {
+    background-color: #f1f1f1;
+}
+
+.login-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: rgb(21, 21, 21);
+}
+
+
+
+        button:hover {
+            color: #f76200;
+        }
+        .hero-section2 {
+    background-image: url('https://i.pinimg.com/originals/9a/ec/53/9aec53a02be059b10f9c7f114625236a.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* Adjust the height as needed */
+    width: 100%; /* Make it cover the full width of the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensure that the h1 is positioned correctly */
+}
+
+.hero-section2 img {
+    display: none; /* Hide the image element */
+}
+
+.hero-section2 h1 {
+    color: white; /* White text color */
+    font-size: 3em; /* Adjust the size as needed */
+    text-align: center; /* Center the text */
+    text-shadow: 2px 2px 5px black; /* Black text outline */
+    margin: 0;
+}
+
+
+
+
+        /* Main Menu Sections */
+        .menu {
+    padding: 20px;
+    background-image: url('../images/2.webp');
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-attachment: fixed; /* Keeps the background image fixed */
+    min-height: 400px; /* Adjust height as needed */
+}
+
+.menu-section {
+    margin-bottom: 40px;
+}
+
+.menu-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: rgb(255, 255, 255); /* Text color */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8), /* Subtle black shadow for depth */
+        -1px -1px 2px rgba(0, 0, 0, 0.8), /* Black shadow in the opposite direction */
+        2px 2px 4px rgba(0, 0, 0, 0.6), /* Soft black shadow for a glowing effect */
+        0 0 1px rgba(0, 0, 0, 0.8), /* Black outline effect */
+        0 0 2px rgba(0, 0, 0, 0.8), /* Additional black outline for better visibility */
+        0 0 3px rgba(0, 0, 0, 0.8); /* Further black outline effect */
+}
+
+
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.menu-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    width: calc(33% - 40px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.menu-item img {
+    width: 525px; /* Fixed width */
+    height: 250px; /* Fixed height */
+    object-fit: cover; /* Ensures the image covers the given dimensions while maintaining aspect ratio */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+
+.menu-item-text {
+    padding: 15px;
+}
+
+.menu-item-text h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.menu-item-text p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.price {
+    font-weight: bold;
+    color: #000;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+
+       
+ .footer {
+            background:black;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            margin: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1abc9c;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: #1abc9c;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .footer-section p,
+        .footer-section ul,
+        .footer-section li,
+        .footer-section a {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-section .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 24px;
+            color: #bdc3c7;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-section .social-links a:hover {
+            color: #1abc9c;
+            transform: scale(1.2);
+        }
+
+        .footer-section:hover h2 {
+            color: #e74c3c;
+        }
+
+        .footer-section:hover h2::after {
+            width: 100%;
+        }
+
+        .footer-section:hover p,
+        .footer-section:hover ul li a {
+            color: #ecf0f1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            background: #011f1f;
+            width: 100%;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+        
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <h1><a href="index.html">The Gallery Cafe</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html" class="dropbtn"><b>Home</b></a>
+                </li>
+                <li><a href="index.html">Menu</a></li>
+                <li><a href="Reservations.html">Reservations</a></li>
+                <li><a href="Preorder.html">Pre-Order</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+               
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search..." onkeyup="showSuggestions(this.value)">
+                <div id="search-icon"><img src="images/s2.png" alt="Search Icon"></div>
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+            <a href="loginMain.html" class="login-btn">Login</a>
+    </header>
+    <!-- MENU SECTIONS -->
+<main class="menu">
+    <!-- BREAKFAST SECTION -->
+    <section id="breakfast" class="menu-section">
+        <div class="container">
+            <h2>Breakfast</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/m1.jpg" alt="Breakfast Item 1">
+                    <div class="menu-item-text">
+                        <h3>Pancakes</h3>
+                        <p>Fluffy pancakes served with maple syrup and fresh berries.</p>
+                        <p class="price">$8.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/m2.webp" alt="Breakfast Item 2">
+                    <div class="menu-item-text">
+                        <h3>Omelette</h3>
+                        <p>Three-egg omelette with your choice of fillings.</p>
+                        <p class="price">$9.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/m3.jpg" alt="Sri Lankan Hoppers">
+                    <div class="menu-item-text">
+                        <h3>Hoppers</h3>
+                        <p>Traditional Sri Lankan hoppers with a crispy edge, served with spicy sambol.</p>
+                        <p class="price">$7.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/m4.jpg" alt="String Hoppers">
+                    <div class="menu-item-text">
+                        <h3>String Hoppers</h3>
+                        <p>Steamed rice noodles served with coconut sambol and curry.</p>
+                        <p class="price">$8.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/m5.webp" alt="Idiyappam">
+                    <div class="menu-item-text">
+                        <h3>Egg roti</h3>
+                        <p>Flatbread stuffed with a flavorful mixture of eggs, onions, and spices, served with coconut sambol.</p>
+                        <p class="price">$8.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/m6.webp" alt="Sri Lankan Curd">
+                    <div class="menu-item-text">
+                        <h3>Curd with Treacle</h3>
+                        <p>Traditional Sri Lankan curd topped with palm treacle.</p>
+                        <p class="price">$6.49</p>
+                    </div>
+                </div>
+                <!-- Additional Breakfast Items -->
+                <div class="menu-item">
+                    <img src="images/m7.jpg" alt="Avocado Toast">
+                    <div class="menu-item-text">
+                        <h3>Avocado Toast</h3>
+                        <p>Sliced avocado on toasted sourdough bread, topped with a sprinkle of sea salt and red pepper flakes.</p>
+                        <p class="price">$9.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/m8.jpg" alt="French Toast">
+                    <div class="menu-item-text">
+                        <h3>French Toast</h3>
+                        <p>Thick slices of bread soaked in egg batter and grilled to perfection, served with powdered sugar and a side of syrup.</p>
+                        <p class="price">$8.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/m9.jpg" alt="Breakfast Burrito">
+                    <div class="menu-item-text">
+                        <h3>Breakfast Burrito</h3>
+                        <p>A warm tortilla filled with scrambled eggs, cheese, and your choice of bacon, sausage, or veggies.</p>
+                        <p class="price">$10.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hero-section2">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/18/7d/cb/8b/just-a-little-spread.jpg" alt="Dune Image">
+        <h1>Enjoy your meal</h1>
+    </div>
+
+
+
+    <!-- BEVERAGES SECTION -->
+    <section id="beverages" class="menu-section">
+        <div class="container">
+            <h2>Beverages</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/b1.jpg" alt="Beverage Item 1">
+                    <div class="menu-item-text">
+                        <h3>Coffee</h3>
+                        <p>Freshly brewed coffee with a rich aroma.</p>
+                        <p class="price">$3.50</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/b2.jpg" alt="Beverage Item 2">
+                    <div class="menu-item-text">
+                        <h3>Tea</h3>
+                        <p>Assorted teas to suit your taste.</p>
+                        <p class="price">$2.75</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/b3.webp" alt="Wood Apple Juice">
+                    <div class="menu-item-text">
+                        <h3>Wood Apple Juice</h3>
+                        <p>A unique Sri Lankan drink made from the aromatic wood apple fruit, known for its tangy and sweet flavor.</p>
+                        <p class="price">$4.50</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/b4.webp" alt="Ginger Lemonade">
+                    <div class="menu-item-text">
+                        <h3>Ginger Lemonade</h3>
+                        <p>A refreshing and spicy lemonade made with fresh ginger and lemon, perfect for a hot day.</p>
+                        <p class="price">$3.00</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/b5.webp" alt="King Coconut">
+                    <div class="menu-item-text">
+                        <h3>King Coconut Juice</h3>
+                        <p>Refreshing juice made from king coconuts, a tropical delight.</p>
+                        <p class="price">$4.00</p>
+                    </div>
+                </div>
+                <!-- Additional Beverages -->
+                <div class="menu-item">
+                    <img src="images/b6.webp" alt="Smoothie">
+                    <div class="menu-item-text">
+                        <h3>Smoothie</h3>
+                        <p>A blend of fresh fruits and yogurt, perfect for a quick energy boost.</p>
+                        <p class="price">$4.00</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/b7.webp" alt="Iced Latte">
+                    <div class="menu-item-text">
+                        <h3>Iced Latte</h3>
+                        <p>Chilled espresso mixed with milk and ice, sweetened to your taste.</p>
+                        <p class="price">$4.25</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/b8.webp" alt="Mango Lassi">
+                    <div class="menu-item-text">
+                        <h3>Mango Lassi</h3>
+                        <p>A traditional Indian yogurt-based drink with a sweet mango flavor.</p>
+                        <p class="price">$4.75</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LUNCH SECTION -->
+    <section id="lunch" class="menu-section">
+        <div class="container">
+            <h2>Lunch</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/l1.jpg" alt="Lunch Item 1">
+                    <div class="menu-item-text">
+                        <h3>Chicken Curry</h3>
+                        <p>Spicy chicken curry served with rice.</p>
+                        <p class="price">$12.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/l2.jpg" alt="Lunch Item 2">
+                    <div class="menu-item-text">
+                        <h3>Vegetable Stir-fry</h3>
+                        <p>Mixed vegetables stir-fried with soy sauce and spices.</p>
+                        <p class="price">$10.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/l3.jpg" alt="Sri Lankan Rice and Curry">
+                    <div class="menu-item-text">
+                        <h3>Rice and Curry</h3>
+                        <p>Traditional Sri Lankan rice with an assortment of curries.</p>
+                        <p class="price">$11.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/l4.jpg" alt="Sri Lankan Hoppers">
+                    <div class="menu-item-text">
+                        <h3>Hoppers</h3>
+                        <p>Delicious hoppers served with a variety of curries.</p>
+                        <p class="price">$12.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/l5.jpg" alt="Lentil Soup">
+                    <div class="menu-item-text">
+                        <h3>Lentil Soup</h3>
+                        <p>Hearty lentil soup served with a side of bread.</p>
+                        <p class="price">$9.99</p>
+                    </div>
+                </div>
+                <!-- Additional Lunch Items -->
+                <div class="menu-item">
+                    <img src="images/l6.jpg" alt="Grilled Chicken Salad">
+                    <div class="menu-item-text">
+                        <h3>Grilled Chicken Salad</h3>
+                        <p>Fresh mixed greens topped with grilled chicken, cherry tomatoes, cucumbers, and your choice of dressing.</p>
+                        <p class="price">$11.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/l7.webp" alt="Beef Stroganoff">
+                    <div class="menu-item-text">
+                        <h3>Beef Stroganoff</h3>
+                        <p>Tender beef strips in a creamy mushroom sauce, served over egg noodles.</p>
+                        <p class="price">$13.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/l8.jpg" alt="Falafel Wrap">
+                    <div class="menu-item-text">
+                        <h3>Falafel Wrap</h3>
+                        <p>Crispy falafel balls wrapped in pita bread with lettuce, tomatoes, and tahini sauce.</p>
+                        <p class="price">$10.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DINNER SECTION -->
+    <section id="dinner" class="menu-section">
+        <div class="container">
+            <h2>Dinner</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/d1c.jpg" alt="Dinner Item 1">
+                    <div class="menu-item-text">
+                        <h3>Spaghetti Carbonara</h3>
+                        <p>Classic Italian pasta dish made with eggs, cheese, pancetta, and black pepper.</p>
+                        <p class="price">$18.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/d2c.jpg" alt="Dinner Item 2">
+                    <div class="menu-item-text">
+                        <h3>Grilled Chicken Burger</h3>
+                        <p>Tender grilled chicken breast with lettuce, tomato, cheese, and a tangy mayo, served on a toasted bun.</p>
+                        <p class="price">$22.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/d3.jpg" alt="Sri Lankan Kottu">
+                    <div class="menu-item-text">
+                        <h3>Kottu</h3>
+                        <p>A flavorful Sri Lankan dish made with chopped roti, vegetables, and your choice of meat.</p>
+                        <p class="price">$15.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/d4.jpg" alt="Sri Lankan Prawn Curry">
+                    <div class="menu-item-text">
+                        <h3>Prawn Curry</h3>
+                        <p>Spicy and aromatic prawn curry served with steamed rice.</p>
+                        <p class="price">$17.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/d5.png" alt="Sri Lankan Fried Rice">
+                    <div class="menu-item-text">
+                        <h3>Sri Lankan Fried Rice</h3>
+                        <p>Flavorful fried rice cooked with vegetables, eggs, and a blend of Sri Lankan spices.</p>
+                        <p class="price">$12.99</p>
+                    </div>
+                </div>
+                
+                <!-- Additional Dinner Items -->
+                <div class="menu-item">
+    <img src="images/d6.jpg" alt="Sri Lankan Roti">
+    <div class="menu-item-text">
+        <h3>Pol Roti</h3>
+        <p>Traditional Sri Lankan coconut flatbread served with spicy sambol and curry.</p>
+        <p class="price">$8.99</p>
+    </div>
+</div>
+
+                <div class="menu-item">
+                    <img src="images/d7.jpg" alt="Lasagna">
+                    <div class="menu-item-text">
+                        <h3>Lasagna</h3>
+                        <p>Layers of pasta with meat sauce, béchamel, and melted cheese.</p>
+                        <p class="price">$18.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/d8.jpg" alt="Vegetarian Stir Fry">
+                    <div class="menu-item-text">
+                        <h3>Vegetarian Stir Fry</h3>
+                        <p>A mix of fresh vegetables stir-fried with tofu and a savory sauce.</p>
+                        <p class="price">$14.99</p>
+                    </div>
+                </div>
+
+                <div class="hero-section2">
+                    <img src="https://www.just-drinks.com/wp-content/uploads/sites/29/2022/07/Drinks-trends.png" alt="Dune Image">
+                    <h1>Enjoy your meal</h1>
+                </div>
+            
+            
+                <!-- APPETIZERS SECTION -->
+<section id="appetizers" class="menu-section">
+    <div class="container">
+        <h2>Appetizers</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="images/a1.webp" alt="Bruschetta">
+                <div class="menu-item-text">
+                    <h3>Bruschetta</h3>
+                    <p>Grilled bread topped with a mixture of tomatoes, garlic, basil, and olive oil.</p>
+                    <p class="price">$7.99</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/a2.jpg" alt="Garlic Bread">
+                <div class="menu-item-text">
+                    <h3>Garlic Bread</h3>
+                    <p>Crispy bread with a savory garlic butter spread.</p>
+                    <p class="price">$5.49</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/a3.jpg" alt="Samosas">
+                <div class="menu-item-text">
+                    <h3>Samosas</h3>
+                    <p>Deep-fried pastries filled with spiced potatoes and peas.</p>
+                    <p class="price">$6.99</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/a4.jpg" alt="Spring Rolls">
+                <div class="menu-item-text">
+                    <h3>Spring Rolls</h3>
+                    <p>Crispy rolls stuffed with a mix of vegetables and served with dipping sauce.</p>
+                    <p class="price">$7.49</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/a5.jpg" alt="Chicken Wings">
+                <div class="menu-item-text">
+                    <h3>Chicken Wings</h3>
+                    <p>Fried chicken wings coated in your choice of sauce: buffalo, barbecue, or honey mustard.</p>
+                    <p class="price">$9.99</p>
+                </div>
+            </div>
+            <!-- Additional Appetizers -->
+            <div class="menu-item">
+                <img src="images/a6.jpg" alt="Cheese Platter">
+                <div class="menu-item-text">
+                    <h3>Cheese Platter</h3>
+                    <p>A selection of fine cheeses served with crackers and fruit.</p>
+                    <p class="price">$11.99</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/a7.jpg" alt="Loaded Nachos">
+                <div class="menu-item-text">
+                    <h3>Loaded Nachos</h3>
+                    <p>Tortilla chips topped with melted cheese, jalapeños, sour cream, and guacamole.</p>
+                    <p class="price">$8.49</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="images/a8.jpeg" alt="Mexican Dips">
+                <div class="menu-item-text">
+                    <h3>Mexican Dips</h3>
+                    <p>A trio of dips including salsa, guacamole, and queso, served with tortilla chips.</p>
+                    <p class="price">$9.49</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="../About.html"><i class="fas fa-users"></i> About</a></li>
+                        <li><a href="../Contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li><a href="Reservations.html"><i class="fas fa-book"></i>Reservations </a></li>
+                    </ul>
+                </div>
+
+                <!-- Socials part -->
+                <div class="footer-section follow">
+                    <h2>Follow Us</h2>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://lk.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section contact">
+                    <h2>Contact Us</h2>
+                    <p>Email: <a href="mailto:info@example.com">thegallerycaffe@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                    <p>Address: 123 delgoda, colombo, 4567</p>
+                </div>
+
+                <div class="footer-bottom">
+                    &copy; 2024 The Gallery Cafe | Designed by bimasha | All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        const suggestionsList = [
+{ text: "Breakfast", link: "/Menu.html#breakfast" },
+{ text: "Beverages", link: "/Menu.html#beverages" },
+{ text: "Lunch", link: "/Menu.html#lunch" },
+{ text: "Dinner", link: "/Menu.html#dinner" },
+{ text: "Appetizer", link: "/Menu.html#appetizer" },
+{ text: "Preorder", link: "/Preorder.html#preorder" },
+{ text: "Contact Us", link: "/Contact.html#contact" }
+];
+
+function showSuggestions(value) {
+const suggestionsBox = document.getElementById('suggestions');
+suggestionsBox.innerHTML = '';
+
+if (value.length > 0) {
+    const filteredSuggestions = suggestionsList.filter(suggestion =>
+        suggestion.text.toLowerCase().includes(value.toLowerCase())
+    );
+    
+    filteredSuggestions.forEach(suggestion => {
+        const suggestionItem = document.createElement('a');
+        suggestionItem.href = suggestion.link; // Set the link to the relevant section in menu.html
+        suggestionItem.textContent = suggestion.text;
+        suggestionsBox.appendChild(suggestionItem);
+    });
+
+    suggestionsBox.style.display = 'block';
+} else {
+    suggestionsBox.style.display = 'none';
+}
+}
+
+document.addEventListener('click', function(event) {
+const isClickInside = document.querySelector('.search-container').contains(event.target);
+if (!isClickInside) {
+    document.getElementById('suggestions').style.display = 'none';
+}
+});
+</script>
+        
+</body>
+</html>

@@ -1,0 +1,127 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('images/lg1.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            box-sizing: border-box; 
+        }
+        .container {
+            width: 460px;
+            padding: 20px; 
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        h2 {
+            font-size: 2rem; 
+            color: #2196f3;
+            margin-bottom: 1.5rem; 
+        }
+        .form-group {
+            margin-bottom: 1rem; 
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.80rem; 
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus {
+            border-color: #2196f3;
+            outline: none;
+            box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+        }
+        .form-group button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            font-size: 1.25rem;
+            border: none;
+            border-radius: 30px;
+            background-color: #2196f3;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .form-group button:hover {
+            background-color: #1e88e5;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+        .link {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        .link a {
+            color: #2196f3;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .link a:hover {
+            color: #1e88e5;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Signup</h2>
+    
+        <form action="userRegistration.php" method="POST">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required oninvalid="this.setCustomValidity('Please enter your email')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required oninvalid="this.setCustomValidity('Please enter your username')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required oninvalid="this.setCustomValidity('Please enter your password')" oninput="this.setCustomValidity('')">
+            </div>
+           
+            <div class="form-group">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="link">
+            <a href="login.html">Already have an account? Log in</a>
+        </div>
+    </div>
+</body>
+</html>
+

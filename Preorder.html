@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>The Gallery Cafe - Pre-Order</title>
+    <style>
+        /* Include the provided styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header h1 a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* LOGO */
+        .logo {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: white;
+            text-transform: none;
+            font-family: "Rowdies", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* HEADER NAV */
+        nav {
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            flex-grow: 2;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: rgb(241, 232, 232);
+            text-decoration: none;
+            padding: 0.5rem 0.5rem;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav ul li a:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        /* Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #4f8c8c;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* HEADER RIGHT */
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* SEARCH BAR */
+        .search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+#search-icon img {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.search-container input {
+    border: none;
+    font-family: "Lato", sans-serif;
+    outline: none;
+    padding: 10px;
+    border-radius: 25px;
+    width: 200px;
+}
+
+.suggestions {
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.suggestions a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.suggestions a:hover {
+    background-color: #f1f1f1;
+}
+
+.login-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: rgb(21, 21, 21);
+}
+
+
+        .preorder-section {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/031/781/760/large_2x/chinese-food-on-white-background-noodles-fried-rice-dumplings-stir-fry-chicken-dim-sum-spring-roll-generative-ai-free-photo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.preorder-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.preorder-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #000000; /* Vibrant blue color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    font-family: 'Helvetica Neue', sans-serif; /* Modern, clean font */
+    letter-spacing: 1px; /* Adds spacing between letters for elegance */
+    text-align: center; /* Centers the heading */
+}
+
+.preorder-section p {
+    font-size: 1.2rem;
+    color: #080808;
+    margin-bottom: 40px;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between menu items */
+    justify-content: center; /* Center align items */
+}
+
+.menu-item {
+    background-color: #fff;
+    border: 1px solid #070707;
+    border-radius: 13px;
+    padding: 20px; /* Adjusted padding */
+    max-width: 300px;
+    text-align: left;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.menu-item h3 {
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+}
+
+.menu-item p {
+    font-size: 1em;
+    margin: 0 0 10px 0;
+}
+
+.menu-item .price {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+
+.preorder-form {
+    background-color: #fff;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 950px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.preorder-form h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e63946;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #d62828;
+}
+
+@media (max-width: 768px) {
+    .preorder-section h2 {
+        font-size: 2rem;
+    }
+
+    .preorder-section p {
+        font-size: 1rem;
+    }
+
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-item {
+        margin-bottom: 20px;
+    }
+
+    .preorder-form {
+        padding: 20px;
+    }
+}
+
+
+        /* FOOTER */
+        .footer {
+            background: black;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            margin: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1abc9c;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: #1abc9c;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .footer-section p,
+        .footer-section ul,
+        .footer-section li,
+        .footer-section a {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-section .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 24px;
+            color: #bdc3c7;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-section .social-links a:hover {
+            color: #1abc9c;
+            transform: scale(1.2);
+        }
+
+        .footer-section:hover h2 {
+            color: #e74c3c;
+        }
+
+        .footer-section:hover h2::after {
+            width: 100%;
+        }
+
+        .footer-section:hover p,
+        .footer-section:hover ul li a {
+            color: #ecf0f1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            background: #011f1f;
+            width: 100%;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="index.html">The Gallery Cafe</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html" class="dropbtn"><b>Home</b></a>
+                </li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Reservations.html">Reservations</a></li>
+                <li><a href="Preorder.html">Pre-Order</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+               
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search..." onkeyup="showSuggestions(this.value)">
+                <div id="search-icon"><img src="images/s2.png" alt="Search Icon"></div>
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+            <a href="loginMain.html" class="login-btn">Login</a>
+    </header>
+
+    <main>
+        <section class="preorder-section">
+            <div class="container">
+                <h2>Pre-Order Authentic Sri Lankan Dishes</h2>
+                <p>Explore the rich and vibrant flavors of Sri Lanka with our special pre-order menu. Choose your favorite dish and have it freshly prepared just for you!</p>
+                
+               <!-- Menu items -->
+<div class="menu-items">
+    <div class="menu-item">
+        <img src="images/pre1.jpg" alt="Kottu Roti">
+        <h3>Kottu Roti</h3>
+        <p>A famous Sri Lankan street food made with chopped roti, vegetables, eggs, and a choice of chicken, beef, or seafood.</p>
+        <span class="price">LKR 800.00</span>
+    </div>
+    <div class="menu-item">
+        <img src="images/pre2.jpg" alt="Egg Hoppers">
+        <h3>Egg Hoppers (Appam)</h3>
+        <p>Delicious bowl-shaped crepes made from fermented rice flour, with a soft egg in the center. Served with sambol.</p>
+        <span class="price">LKR 150.00 each</span>
+    </div>
+    <div class="menu-item">
+        <img src="images/pre3.jpg" alt="Rice and Curry">
+        <h3>Rice and Curry</h3>
+        <p>The quintessential Sri Lankan meal, served with a variety of curries, sambol, and pickles. Choose from chicken, fish, or vegetarian.</p>
+        <span class="price">LKR 500.00</span>
+    </div>
+    <!-- Additional Menu Items -->
+    <div class="menu-item">
+        <img src="images/pre4.jpg" alt="Sri Lankan String Hoppers">
+        <h3>Sri Lankan String Hoppers</h3>
+        <p>Steamed rice flour noodles served with a variety of accompaniments such as curry, coconut sambol, and dhal.</p>
+        <span class="price">LKR 350.00</span>
+    </div>
+    <div class="menu-item">
+        <img src="images/pre5.jpg" alt="Fish Cutlets">
+        <h3>Fish Cutlets</h3>
+        <p>Deep-fried spicy fish patties made with seasoned fish, mashed potatoes, and aromatic spices.</p>
+        <span class="price">LKR 200.00</span>
+    </div>
+    <div class="menu-item">
+        <img src="images/pre6.webp" alt="Coconut Roti">
+        <h3>Coconut Roti</h3>
+        <p>Flatbread made with coconut and flour, often enjoyed with curries or as a snack on its own.</p>
+        <span class="price">LKR 120.00</span>
+    </div>
+</div>
+
+                <!-- Pre-order form -->
+                <form class="preorder-form">
+                    <h3>Place Your Pre-Order</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dish">Select Your Dish</label>
+                        <select id="dish" name="dish" required>
+                            <option value="kottu">Kottu Roti - LKR 800.00</option>
+                            <option value="hoppers">Egg Hoppers - LKR 150.00 each</option>
+                            <option value="rice">Rice and Curry - LKR 500.00</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Pickup Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <button type="submit" class="btn">Submit Pre-Order</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="../About.html"><i class="fas fa-users"></i> About</a></li>
+                        <li><a href="../Contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li><a href="Reservations.html"><i class="fas fa-book"></i>Reservations </a></li>
+                    </ul>
+                </div>
+
+                <!-- Socials part -->
+                <div class="footer-section follow">
+                    <h2>Follow Us</h2>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://lk.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section contact">
+                    <h2>Contact Us</h2>
+                    <p>Email: <a href="mailto:info@example.com">thegallerycaffe@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                    <p>Address: 123 delgoda, colombo, 4567</p>
+                </div>
+
+                <div class="footer-bottom">
+                    &copy; 2024 The Gallery Cafe | Designed by bimasha | All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const suggestionsList = [
+{ text: "Breakfast", link: "/Menu.html#breakfast" },
+{ text: "Beverages", link: "/Menu.html#beverages" },
+{ text: "Lunch", link: "/Menu.html#lunch" },
+{ text: "Dinner", link: "/Menu.html#dinner" },
+{ text: "Appetizer", link: "/Menu.html#appetizer" },
+{ text: "Preorder", link: "/Preorder.html#preorder" },
+{ text: "Contact Us", link: "/Contact.html#contact" }
+];
+
+function showSuggestions(value) {
+const suggestionsBox = document.getElementById('suggestions');
+suggestionsBox.innerHTML = '';
+
+if (value.length > 0) {
+    const filteredSuggestions = suggestionsList.filter(suggestion =>
+        suggestion.text.toLowerCase().includes(value.toLowerCase())
+    );
+    
+    filteredSuggestions.forEach(suggestion => {
+        const suggestionItem = document.createElement('a');
+        suggestionItem.href = suggestion.link; // Set the link to the relevant section in menu.html
+        suggestionItem.textContent = suggestion.text;
+        suggestionsBox.appendChild(suggestionItem);
+    });
+
+    suggestionsBox.style.display = 'block';
+} else {
+    suggestionsBox.style.display = 'none';
+}
+}
+
+document.addEventListener('click', function(event) {
+const isClickInside = document.querySelector('.search-container').contains(event.target);
+if (!isClickInside) {
+    document.getElementById('suggestions').style.display = 'none';
+}
+});
+</script>
+</body>
+</html>
+
